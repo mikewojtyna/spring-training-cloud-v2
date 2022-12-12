@@ -11,6 +11,7 @@
 		<module>investment</module>
 		<module>account</module>
 		<module>crowdsorcery-common</module>
+		<module>eureka-server</module>
 	</modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
