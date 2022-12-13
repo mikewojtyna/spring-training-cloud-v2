@@ -4,19 +4,20 @@ import pl.wojtyna.trainings.spring.cloud.crowdsorcery.investor.domain.Investor;
 import pl.wojtyna.trainings.spring.cloud.crowdsorcery.investor.ports.secondary.InvestorRepository;
 
 import java.util.List;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 
 public class InMemoryInvestorRepository implements InvestorRepository {
 
-    private final ConcurrentLinkedQueue<Investor> investors = new ConcurrentLinkedQueue<>();
+    private final ConcurrentMap<String, Investor> investors = new ConcurrentHashMap<>();
 
     @Override
     public void save(Investor investor) {
-        investors.add(investor);
+        investors.put(investor.id(), investor);
     }
 
     @Override
     public List<Investor> findAll() {
-        return List.copyOf(investors);
+        return List.copyOf(investors.values());
     }
 }
