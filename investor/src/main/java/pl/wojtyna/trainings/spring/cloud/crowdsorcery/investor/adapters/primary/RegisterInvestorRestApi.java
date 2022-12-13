@@ -12,11 +12,11 @@ import java.net.URI;
 
 @RestController
 @RequestMapping("/investor-module/api/v0/investors")
-public class InvestorRestApi {
+public class RegisterInvestorRestApi {
 
     private final RegisterInvestorUseCase registerInvestorUseCase;
 
-    public InvestorRestApi(RegisterInvestorUseCase registerInvestorUseCase) {
+    public RegisterInvestorRestApi(RegisterInvestorUseCase registerInvestorUseCase) {
         this.registerInvestorUseCase = registerInvestorUseCase;
     }
 
